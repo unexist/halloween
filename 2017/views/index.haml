@@ -1,0 +1,117 @@
+!!!
+%html
+
+%head
+    %meta{charset: "utf-8"}
+    %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
+    %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
+
+    %title Elitehaus Halloween
+
+    %script{src: "/js/jquery.js"}
+    %script{src: "/js/bootstrap.js"}
+    %script{src: "/js/bootstrap.min.js"}
+
+    %link{href: "/css/bootstrap.css", rel: "stylesheet"}
+    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+    %link{href: "/css/halloween.css", rel: "stylesheet"}
+
+%body{style: "background-color: black"}
+
+-# Front
+.container
+    .top-part
+        .row
+            .col-md-12
+                .top-headline
+                    %span.fontface-top.border-front
+                        %h3 Haunted Elitehaus
+        .row
+            .col-md-12
+                .board
+
+        .row
+            .col-md-12
+                .bottom
+                    %span.fontface-bottom.border-front SCROLL DOWN
+
+-# Information
+.container
+    .row
+        .col-md-3
+            .skull
+        .col-md-6
+            %h3 Location of the gray:
+        .col-md-3
+            .skull
+
+    .row
+        .col-md-12
+            %hr
+
+    .info
+        .row
+            .col-xs-5
+                .top-item Address:
+        .row.space
+            .col-xs-5
+                %p You know where the legendary Elitehaus is located!
+
+        .row
+            .col-xs-6
+                .top-item Date:
+        .row.space
+            .col-xs-6
+                %p 31.10.2017 - 8:00pm
+
+        .row
+            .col-xs-6
+                .top-item Mode:
+        .row.space
+            .col-xs-6
+                %p It's a Bottleparty - bring your own stuff!
+
+        .row
+            .col-xs-6
+                .top-item Dresscode:
+        .row.space
+            .col-xs-6
+                %p Halloween loves sexiness and thrives on twisted imagination! Be creative!
+
+        .row
+            .col-xs-6
+                .top-item Other:
+        .row.space
+            .col-xs-6
+                %p We're going to provide some scary treats from the house. However, if someone would like to bring some food, we would be very grateful.
+
+        .row
+            .col-md-12
+                .bottom
+                    %span.fontface-bottom.border-front SCROLL DOWN
+
+-# Guestbook
+.container
+    .row
+        .col-md-3
+            .skull
+        .col-md-6
+            %h3 Guestbook:
+        .col-md-3
+            .skull
+
+    .info.center-block
+        %table.table
+            %tr
+                %td Name:
+                %td{colspan: 2}
+                    %input.input-lg.space{id: "name", type: "text"}
+
+            %tr
+                %td Text:
+                %td
+                    %textarea.space{id: "text", rows: 5}
+                %td.text-right
+                    %input{id: "submit", type: "button", value: "Braaiins!"}
+
+

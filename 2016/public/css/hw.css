@@ -1,0 +1,155 @@
+/* Reset */
+@import url("https://fonts.googleapis.com/css?family=Creepster");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  outline: none; }
+
+/* Font */
+.font {
+  font-family: "Creepster", cursive; }
+
+/* Colors */
+.red {
+  color: #ff1100; }
+
+.orange {
+  color: #feae17; }
+
+/* Styles */
+.italic {
+  font-variant: italic; }
+
+.underline {
+  text-decoration: underline; }
+
+.bold {
+  font-weight: bold; }
+
+/* Sizes and spaces */
+.small {
+  width: 69px;
+  height: 63px; }
+
+.spaced {
+  margin: 20px 10px 10px 10px; }
+
+.padded {
+  padding: 5px; }
+
+.bigger {
+  font-size: 150%; }
+
+/* Elements */
+body {
+  background-color: #000; }
+
+h1 {
+  margin: 40px 10px 40px 10px;
+  font-size: 180%; }
+
+p {
+  text-align: justify;
+  width: 313px; }
+
+a {
+  color: #ff1100;
+  cursor: crosshair; }
+
+img {
+  vertical-align: middle; }
+
+/* Misc */
+.relative {
+  position: relative; }
+
+/* Layout */
+#page {
+  width: 940px;
+  height: 420px; }
+  #page .page-cell {
+    width: 100%;
+    height: 420px;
+    margin-right: 10px;
+    counter-increment: gallery-cell; }
+    #page .page-cell.left {
+      background-image: url(../img/left.png);
+      background-repeat: no-repeat; }
+    #page .page-cell.right {
+      background-image: url(../img/right.png);
+      background-repeat: no-repeat; }
+
+#dots {
+  width: 940px;
+  display: table;
+  table-layout: fixed;
+  background-image: url(../img/skull5.png);
+  background-repeat: repeat-x;
+  background-position: center center; }
+  #dots li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px; }
+    #dots li a {
+      display: inline-block;
+      background: url(../img/pumpkin2.png) no-repeat; }
+    #dots li.active a {
+      background: url(../img/pumpkin3.png) no-repeat; }
+
+#box {
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  right: 230px; }
+  #box .sign-cell {
+    width: 630px;
+    height: 340px; }
+
+#list {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 220px; }
+  #list table th, #list table td {
+    width: 315px;
+    text-align: left; }
+  #list table th {
+    color: #feae17; }
+  #list table td {
+    color: #fd6e10; }
+
+/* Input */
+input[type="text"], textarea {
+  background-color: transparent;
+  border-bottom: 1px solid #feae17;
+  color: #feae17;
+  width: 380px;
+  padding: 5px;
+  font-size: 90%; }
+
+input[type="button"] {
+  background-color: transparent;
+  border: 1px solid #feae17;
+  color: #feae17;
+  padding: 5px;
+  font-size: 90%; }
+
+/* Flash */
+.flash {
+  position: fixed;
+  top: 375px;
+  left: 610px;
+  z-index: 99999;
+  text-align: center; }
+  .flash .box {
+    color: #feae17;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: #000;
+    background-image: url(../img/flash.png);
+    background-repeat: no-repeat;
+    background-position: left center; }
+
+/*# sourceMappingURL=hw.css.map */

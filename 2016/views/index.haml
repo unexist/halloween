@@ -1,0 +1,131 @@
+!!!
+%html
+  %head
+    %title Elitehaus - Halloween - Party!
+
+    %meta{name: "author", content: "Elitehaus"}
+
+    %link{rel: "stylesheet", href: "css/flickity.css"}
+    %link{rel: "stylesheet", href: "css/hw.css"}
+
+    %script{src: "js/jquery-3.1.1.min.js"}
+    %script{src: "js/flickity.pkgd.min.js"}
+    %script{src: "js/hw.js"}
+
+  %body.font
+    #page.relative
+      .page-cell.left
+        %h1.red Elitehaus - Halloween Party!
+
+        %p.spaced
+          Dieses Jahr wird im 
+
+          %a.goTo{"data-page": 1}
+            Elitehaus
+
+          Halloween gefeiert :) yay
+
+        %p.spaced
+          Damit auch für das leibliche Wohl gesorgt ist, werden wir Salate,
+          Kürbissuppe und etwas Fingerfood zubereiten. 
+
+        %p.spaced
+          Wer allerdings von euch auch noch 
+
+          %span.underline
+            thematisch
+
+          passende Snacks oder Nachtisch oder so etwas mitbringen möchte, ist
+          dazu herzlich eingeladen ;)
+
+        %p.spaced
+          Damit wir den Überblick behalten, wäre es super, wenn ihr uns
+
+          %a.goTo{"data-page": 3}
+            hier
+
+          kurz Bescheid gebt, ob ihr kommt und falls ihr etwas mitbringt.
+
+      .page-cell.right
+        #sign
+          #box
+            .sign-cell
+              %h1.red Wann/Wo/Wie
+
+              %table.spaced
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                    Wann:
+                  %td.bigger.red.padded
+                    31/10/2016 @ 20:00
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                    Wo:
+                  %td.bigger.red.padded
+                    Elitehaus
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                    Wie:
+                  %td.bigger.red.padded
+                    Verkleidet!
+
+            .sign-cell
+              %h1.red Geister
+
+              #list
+                %table.spaced
+                  %tr
+                    %th.bigger.padded
+                      Name
+                    %th.bigger.padded
+                      Bringt was
+
+                  - @ghosts.each do |ghost|
+                    %tr
+                      %td= ghost.name
+                      %td= ghost.brings
+
+            .sign-cell
+              %h1.red Ich..
+
+              %table.spaced
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                    bin:
+                  %td.bigger.red.padded
+                    %input.font{id: "name", type: "text"}
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                    bringe mit:
+                  %td.bigger.red.padded
+                    %textarea.font{id: "brings", rows: 2}
+                %tr
+                  %td
+                    %img.small{src: "img/pumpkin.png"}
+                  %td.bigger.orange.padded
+                  %td.bigger.red.padded
+                    %input.font.bold{id: "submit", type: "button", value: "Braaiins!"}
+
+
+    %ul#dots
+      %li.active
+        %a.small{href: "#"}
+
+      %li
+        %a.small{href: "#"}
+
+      %li
+        %a.small{href: "#"}
+
+      %li
+        %a.small{href: "#"}

@@ -1,0 +1,210 @@
+/* Reset */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  outline: none;
+}
+
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Creepster');
+
+.font {
+  font-family: "Creepster", cursive;
+}
+
+/* Colors */
+$red:         #ff1100;
+$orange:      #feae17;
+$yellow:      #ffe9c2;
+
+$dark_grey:   #373f42;
+$dark_orange: #fd6e10;
+
+.red {
+  color: $red;
+}
+
+.orange {
+  color: $orange;
+}
+
+/* Styles */
+.italic {
+  font-variant: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Sizes and spaces */
+.small {
+  width: 69px;
+  height: 63px;
+}
+
+.spaced {
+  margin: 20px 10px 10px 10px;
+}
+
+.padded {
+  padding: 5px;
+}
+
+.bigger {
+  font-size: 150%;
+}
+
+/* Elements */
+body {
+  background-color: #000;
+}
+
+h1 {
+  margin: 40px 10px 40px 10px;
+  font-size: 180%;
+}
+
+p {
+  text-align: justify;
+  width: 313px;
+}
+
+a {
+  color: $red;
+  cursor: crosshair;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Misc */
+.relative {
+  position: relative;
+}
+
+/* Layout */
+#page {
+  width: 940px;
+  height: 420px;
+
+  .page-cell {
+    width: 100%;
+    height: 420px;
+    margin-right: 10px;
+    counter-increment: gallery-cell;
+
+    &.left {
+      background-image: url(../img/left.png);
+      background-repeat: no-repeat;
+    }
+
+    &.right {
+      background-image: url(../img/right.png);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+#dots {
+  width: 940px;
+  display: table;
+  table-layout: fixed;
+
+  background-image: url(../img/skull5.png);
+  background-repeat: repeat-x;
+  background-position: center center;
+
+  li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px;
+
+    a {
+      display: inline-block;
+      background: url(../img/pumpkin2.png) no-repeat;
+    }
+
+    &.active a {
+      background: url(../img/pumpkin3.png) no-repeat;
+    }
+  }
+}
+
+#box {
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  right: 230px;
+
+  .sign-cell {
+    width: 630px;
+    height: 340px;
+  }
+}
+
+#list {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 220px;
+
+  table {
+    th, td {
+      width: 315px;
+      text-align: left;
+    }
+
+    th {
+      color: $orange;;
+    }
+
+    td {
+      color: $dark_orange;
+    }
+  }
+}
+
+/* Input */
+input[type="text"],  textarea {
+  background-color: transparent;
+  border-bottom: 1px solid $orange;
+  color: $orange;
+  width: 380px;
+  padding: 5px;
+  font-size: 90%;
+}
+
+input[type="button"] {
+  background-color: transparent;
+  border: 1px solid $orange;
+  color: $orange;
+  padding: 5px;
+  font-size: 90%;
+}
+
+/* Flash */
+.flash {
+  position: fixed;
+  top: 375px;
+  left: 610px;
+  z-index: 99999;
+  text-align: center;
+
+  .box {
+    color: $orange;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: #000;
+    background-image: url(../img/flash.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+}
