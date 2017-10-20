@@ -11,6 +11,7 @@
     %script{src: "/js/jquery.js"}
     %script{src: "/js/bootstrap.js"}
     %script{src: "/js/bootstrap.min.js"}
+    %script{src: "/js/hw.js"}
 
     %link{href: "/css/bootstrap.css", rel: "stylesheet"}
     %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
@@ -76,7 +77,7 @@
                 .top-item Dresscode:
         .row.space
             .col-xs-6
-                %p Halloween loves sexiness and thrives on twisted imagination! Be creative!
+                %p Halloween thrives on twisted imagination! Be creative!
 
         .row
             .col-xs-6
@@ -100,18 +101,23 @@
         .col-md-3
             .skull
 
-    .info.center-block
-        %table.table
-            %tr
-                %td Name:
-                %td{colspan: 2}
-                    %input.input-lg.space{id: "name", type: "text"}
+    .row.info
+        %table.table{id: "list"}
+            - @ghosts.each do |ghost|
+                %tr.entry
+                    %td= ghost.name
+                    %td{colspan: 2}= ghost.text
 
             %tr
-                %td Text:
+                %td Name:
                 %td
-                    %textarea.space{id: "text", rows: 5}
+                    %input.input-lg.space{id: "name", type: "text", tabindex: 1}
                 %td.text-right
-                    %input{id: "submit", type: "button", value: "Braaiins!"}
+                    %input{id: "submit", type: "button", value: "Gimme Braaiins!", tabindex: 3}
+
+            %tr
+                %td Boooo?
+                %td{colspan: 2}
+                    %textarea.space{id: "text", rows: 5, tabindex: 2}
 
 

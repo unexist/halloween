@@ -81,11 +81,19 @@ span.border {
 }
 
 /* Content */
-p {
+td, input, textarea, p {
     font: 20px 'slk', Arial, sans-serif;
     margin: 10px;
     letter-spacing: 1px;
     color: #9e9e9e;
+    vertical-align: middle !important;
+}
+
+input, textarea {
+  background-color: #9e9e9e;
+  color: #fff;
+  border: 1px solid #fff;
+  width: 100%;
 }
 
 .top-item {
@@ -101,4 +109,57 @@ hr {
     margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Ghosts */
+.entry:nth-child(odd) {
+    background-image: url("/media/pump_good.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.entry:nth-child(even) {
+    background-image: url("/media/pump_bad.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+
+.entry td:last-child {
+    margin-right: 40px;
+}
+
+.entry td:first-child {
+    vertical-align: top !important;
+}
+
+.entry td:first-child:after {
+    content: ":";
+}
+
+.entry td {
+    max-width: 50px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
+
+/* Flash */
+.flash {
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    right: 0px;
+    z-index: 99999;
+    text-align: center;
+}
+
+.flash .box {
+    font: 25px 'slk', Arial, sans-serif;
+    color: #fff;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: #9e9e9e;
+    border: 1px solid #fff;
 }
