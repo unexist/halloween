@@ -31,7 +31,7 @@ end
 
 # Routes
 get "/" do
-  @ghosts = Ghost.all(:order => [ :name.desc ])
+  @ghosts = Ghost.all(:order => [ :created_at.desc ])
 
   haml :index
 end
