@@ -62,39 +62,42 @@ $(document).ready(function() {
   $("#submit_vac, #submit_tst").click(function(e) {
     var name = $("#name").val();
 
-    if("" != name)
-    {
+    if ("" != name) {
       var isTested = "submit_tst" === e.target.id;
 
-        /* Store data */
-        $.ajax({
-          type: "POST",
-          url: "/ghost",
-          data: {
-            name:   name,
-            tested: isTested,
-            vacced: "submit_vac" === e.target.id
-          },
+      /* Store data */
+      $.ajax({
+        type: "POST",
+        url: "/ghost",
+        data: {
+          name: name,
+          tested: isTested,
+          vacced: "submit_vac" === e.target.id
+        },
 
-          /* Success handler */
-          success: function(data, status) {
-            /* Insert data */
-            $("#list").append('<div class="' + (isTested ? "tested" : '') + '">' + name + '</div>');
+        /* Success handler */
+        success: function (data, status) {
+          /* Insert data */
+          $("#list").append('<div class="' + (isTested ? "tested" : '') + '">' + name + '</div>');
 
-            /* Clear */
-            $("#name").val("");
+          /* Clear */
+          $("#name").val("");
+          $("#name").css("border-color", "white");
 
-            /* Update UI */
-            showToast("Yay");
-          },
+          /* Update UI */
+          showToast("Yay");
+        },
 
-          /* Error handler */
-          error: function(xhr, status, e) {
-            showToast("Something went wrong: " + status);
-          }
-        });
+        /* Error handler */
+        error: function (xhr, status, e) {
+          showToast("Das ging schief: " + status);
+        }
+      });
 
-      }
-    else showToast("Something is missing!");
+    }
+    else {
+      $("#name").css("border-color", "red");
+      showToast("Fehlt da nicht irgendwas?");
+    }
   });
 });

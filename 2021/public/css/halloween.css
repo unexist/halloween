@@ -18,6 +18,7 @@ BODY {
 .gap {
   overflow: hidden;
   position: relative;
+  height: 500px;
 }
 
 .image {
@@ -66,9 +67,9 @@ h4 {
     letter-spacing: 4px;
     text-transform: uppercase;
     text-align: center;
-    font-size: 60px;
-    color: white;
-    margin-top: 25px;
+    font-size: 15px;
+    color: #666;
+    margin-top: 10px;
 }
 
 /* Content */
