@@ -1,4 +1,5 @@
 require "rubygems"
+gem "sinatra", "1.4.8"
 require "sinatra"
 require "haml"
 require "data_mapper"
@@ -24,11 +25,6 @@ end
 
 DataMapper.finalize
 Ghost.auto_upgrade!
-
-# Config
-configure do
-  set :port, 8000
-end
 
 # Routes
 get "/" do
