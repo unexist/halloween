@@ -9,7 +9,7 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/hw.db")
 
 # Config
 configure do
-  set :port, 8000
+  set :port, 10000
 end
 
 class Ghost
