@@ -6,7 +6,7 @@
     %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
     %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
 
-    %title Elitehaus Halloween
+    %title Praelloween im Elitehaus
 
     %script{src: "/js/jquery.js"}
     %script{src: "/js/popper.js"}
@@ -24,36 +24,72 @@
         .col-md-12
             %span.fontface-top.border-front
                 %h3 Praelloween
-    .row
+    -# Medium, large and xtra-large
+    .row.d-xs-none.d-sm-none.d-md-none.d-lg-block.d-xl-block
         .col-md-12
             .container
                 .row
-                    .col-md-6.layout
+                    .col-md-6.image-box
                         .gap
                             %img.image{src: "media/halloween.jpg"}
                     .col-md-6
                         .container
                             .row
-                                .col-xs-6.title-item Address
-                                .col-xs-6.text-item
+                                .col-md-6.title-item Address
+                                .col-md-6.text-item
                                     You know where the legendary Elitehaus is located!
                             .row
-                                .col-xs-6.title-item Date
-                                .col-xs-6.text-item
+                                .col-md-6.title-item Date
+                                .col-md-6.text-item
                                     30.10.2021 - 12:00
                             .row
-                                .col-xs-6.title-item Mode:
-                                .col-xs-6.text-item
+                                .col-md-6.title-item Mode:
+                                .col-md-6.text-item
                                     It's a Bottleparty - bring your own stuff!
                             .row
-                                .col-xs-6.title-item Dresscode:
+                                .col-md-12.title-item Dresscode:
                             .row.space
-                                .col-xs-6.text-item
+                                .col-md-12.text-item
                                     Halloween thrives on twisted imagination! Be creative!
                             .row
-                                .col-xs-6.title-item Other:
+                                .col-md-12.title-item Other:
                             .row.space
-                                .col-xs-6.text-item
+                                .col-md-12.text-item
+                                    We're going to provide some scary treats from the house.
+                                    However, if someone would like to bring some food, we would
+                                    be very grateful.
+    -# Xtra-small and small
+    .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
+        .col-sm-12
+            .container
+                .row
+                    .col-sm-12.image-box
+                        .gap
+                            %img.image{src: "media/halloween.jpg"}
+                .row
+                    .col-sm-12
+                        .container
+                            .row
+                                .col-sm-6.title-item Address
+                                .col-sm-6.text-item
+                                    You know where the legendary Elitehaus is located!
+                            .row
+                                .col-sm-6.title-item Date
+                                .col-sm-6.text-item
+                                    30.10.2021 - 12:00
+                            .row
+                                .col-sm-6.title-item Mode:
+                                .col-sm-6.text-item
+                                    It's a Bottleparty - bring your own stuff!
+                            .row
+                                .col-sm-12.title-item Dresscode:
+                            .row.space
+                                .col-sm-12.text-item
+                                    Halloween thrives on twisted imagination! Be creative!
+                            .row
+                                .col-sm-12.title-item Other:
+                            .row.space
+                                .col-sm-12.text-item
                                     We're going to provide some scary treats from the house.
                                     However, if someone would like to bring some food, we would
                                     be very grateful.
