@@ -1,0 +1,187 @@
+/* Pixel font */
+@font-face {
+    font-family: 'fright';
+    src: url('/fonts/Frightmare.ttf') format('truetype');
+}
+
+/* Tags */
+BODY {
+    background-color: #000;
+    font-family: 'fright', Arial, sans-serif;
+}
+
+table {
+    max-width: 1140px;
+}
+
+/* Image */
+.pumpkin {
+    background-image: url("/media/halloween.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+}
+
+.layout {
+  box-sizing: border-box;
+}
+
+.gap {
+  width: 600px;
+  height: 400px;
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 110%;
+  height: 100%;
+  margin-left: 0px;
+  margin-top: -15px;
+  animation: MOVE-BG 10s linear infinite alternate;
+  animation-name: MOVE-BG;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes MOVE-BG {
+	0% {
+    transform: scale(1) translate(0, 0);
+  }
+	50% {
+    transform: scale(1.2) translate(5px, 5px);
+  }
+  100% {
+    transform: scale(1.3) translate(-5px,5px);
+  }
+}
+
+/* Headline */
+h1 {
+    font-size: 60px/68px;
+}
+
+h3 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    margin-top: 50px;
+}
+
+h4 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    margin-top: 25px;
+}
+
+/* Content */
+td, input, textarea {
+    font-size: 20px;
+    margin: 10px;
+    letter-spacing: 1px;
+    color: #9e9e9e;
+    vertical-align: middle !important;
+}
+
+div {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #9e9e9e;
+    vertical-align: middle !important;
+}
+
+input {
+  background-color: #9e9e9e;
+  color: #fff;
+  border: 1px solid #fff;
+  width: 100%;
+}
+
+.title-item {
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.text-item {
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 5px;
+}
+
+/* Divider */
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Ghosts */
+#list > div:nth-child(odd) {
+    background-image: url("/media/ghost1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list > div:nth-child(even) {
+    background-image: url("/media/ghost2.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list > div.tested {
+    background-image: url("/media/ghost3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list {
+    padding: 0px;
+}
+
+#list > * {
+    width: 98px;
+    height: 98px;
+    padding: 10px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Flash */
+.flash {
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    right: 0px;
+    z-index: 99999;
+    text-align: center;
+}
+
+.flash .box {
+    font-size: 25px;
+    color: #fff;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: #9e9e9e;
+    border: 1px solid #fff;
+}

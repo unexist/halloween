@@ -1,0 +1,79 @@
+!!!
+%html
+
+%head
+    %meta{charset: "utf-8"}
+    %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
+    %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
+
+    %title Elitehaus Halloween
+
+    %script{src: "/js/jquery.js"}
+    %script{src: "/js/popper.js"}
+    %script{src: "/js/bootstrap.min.js"}
+    %script{src: "/js/hw.js"}
+
+    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+    %link{href: "/css/halloween.css", rel: "stylesheet"}
+
+%body
+
+-# Front
+#page.container
+    .row
+        .col-md-12
+            %span.fontface-top.border-front
+                %h3 Praelloween
+    .row
+        .col-md-12
+            .container
+                .row
+                    .col-md-6.layout
+                        .gap
+                            %img.image{src: "media/halloween.jpg"}
+                    .col-md-6
+                        .container
+                            .row
+                                .col-xs-6.title-item Address
+                                .col-xs-6.text-item
+                                    You know where the legendary Elitehaus is located!
+                            .row
+                                .col-xs-6.title-item Date
+                                .col-xs-6.text-item
+                                    30.10.2021 - 12:00
+                            .row
+                                .col-xs-6.title-item Mode:
+                                .col-xs-6.text-item
+                                    It's a Bottleparty - bring your own stuff!
+                            .row
+                                .col-xs-6.title-item Dresscode:
+                            .row.space
+                                .col-xs-6.text-item
+                                    Halloween thrives on twisted imagination! Be creative!
+                            .row
+                                .col-xs-6.title-item Other:
+                            .row.space
+                                .col-xs-6.text-item
+                                    We're going to provide some scary treats from the house.
+                                    However, if someone would like to bring some food, we would
+                                    be very grateful.
+
+    .row
+        .col-md-12
+            %table.table
+                %tr
+                    %td Name:
+                    %td{colspan: 2}
+                        %input.input-lg.space{id: "name", type: "text", tabindex: 1}
+                %tr
+                    %td Count me in - I:
+                    %td
+                        %input{id: "submit_vac", type: "button", value: "Am vaccinated!", tabindex: 2}
+                    %td
+                        %input{id: "submit_tst", type: "button", value: "Will be tested!", tabindex: 3}
+                %tr
+                    %td{colspan: 3}
+                        #list.d-flex.flex-row.flex-wrap
+                            -# Ghosts
+                            - @ghosts.each do |ghost|
+                                %div{class: ghost.tested ? "tested" : ""}= ghost.name
