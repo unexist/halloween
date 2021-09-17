@@ -98,23 +98,34 @@
                                     Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
                                     Curare! Neiiiiiiiiin!
                                     Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
-    -# Xtra-small and small
+    -# Form
     .row
         .col-md-12
-            %table.table
+            %table.table{id: "comments"}
                 %tr
                     %td Name:
                     %td{colspan: 2}
                         %input.input-lg.space{id: "name", type: "text", tabindex: 1}
                 %tr
+                    %td Kommentar:
+                    %td{colspan: 2}
+                        %textarea{id: "comment", rows: 2, tabindex: 2}
+                %tr
                     %td Ich komme als..
                     %td
-                        %input{id: "submit_vac", type: "button", value: "Geimpfte/r!", tabindex: 2}
+                        %input{id: "submit_vac", type: "button", value: "Geimpfte/r!", tabindex: 3}
                     %td
-                        %input{id: "submit_tst", type: "button", value: "Getestete/r!", tabindex: 3}
-                %tr
+                        %input{id: "submit_tst", type: "button", value: "Getestete/r!", tabindex: 4}
+                %tr{id: "ghosts"}
                     %td{colspan: 3}
                         #list.d-flex.flex-row.flex-wrap
                             -# Ghosts
                             - @ghosts.each do |ghost|
                                 %div{class: ghost.tested ? "tested" : ""}= ghost.name
+                -# Ghosts
+                - @ghosts.each do |ghost|
+                    - unless ghost.comment.nil? or ghost.comment.empty?
+                        %tr
+                            %td.comment{colspan: 3}
+                                %span.name= ghost.name
+                                %span.text= ghost.comment

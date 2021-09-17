@@ -88,7 +88,7 @@ div {
     vertical-align: middle !important;
 }
 
-input {
+input, textarea {
   background-color: #9e9e9e;
   color: #fff;
   border: 1px solid #fff;
@@ -151,6 +151,21 @@ hr {
     text-overflow: ellipsis;
     vertical-align: middle;
     text-align: center;
+}
+
+/* Comments */
+.comment .name:before {
+    content: "<";
+    color: #fff;
+}
+.comment .name {
+    color: #fff;
+}
+
+.comment .name:after {
+    content: ">";
+    color: #fff;
+    margin-right: 5px;
 }
 
 /* Flash */

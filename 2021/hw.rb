@@ -20,6 +20,7 @@ class Ghost
   property :name,       String
   property :tested,     Boolean
   property :vacced,     Boolean
+  property :comment,    Text
   property :created_at, DateTime
 end
 
@@ -37,6 +38,7 @@ post "/ghost" do
   Ghost.create(name: params["name"],
     tested: params["tested"],
     vacced: params["vacced"],
+    comment: params["comment"],
     created_at: Time.now
   )
 
