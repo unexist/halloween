@@ -1,7 +1,13 @@
-/* Pixel font */
+/* Font */
 @font-face {
     font-family: 'fright';
     src: url('/fonts/Frightmare.ttf') format('truetype');
+}
+
+#font-switch {
+    color: #666;
+    font-family: "arial";
+    font-size: 10px;
 }
 
 /* Tags */
