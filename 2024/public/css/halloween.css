@@ -1,0 +1,203 @@
+/* Colors */
+:root {
+    --yellow: #F9CC00;
+    --red: #CE1D1B;
+    --light_blue: #526079;
+    --dark_blue: #222840;
+}
+
+/* Font */
+@font-face {
+    font-family: 'fright';
+    src: url('/fonts/TheShadowAdventure.ttf') format('truetype');
+}
+
+#font-switch {
+    color: #666;
+    font-family: "arial";
+    font-size: 10px;
+}
+
+/* Tags */
+BODY {
+    background-color: #000;
+    font-family: 'fright', Arial, sans-serif;
+}
+
+/* Image */
+#wallpaper {
+    background-image: url(../media/patch.jpg);
+    background-color: #444;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.image-box {
+  box-sizing: border-box;
+}
+
+.gap {
+  overflow: hidden;
+  position: relative;
+  height: 500px;
+}
+
+@keyframes MOVE-BG {
+	0% {
+        transform: scale(1) translate(0, 0);
+    }
+	50% {
+        transform: scale(1.2) translate(5px, 5px);
+    }
+    100% {
+        transform: scale(1.3) translate(-5px,5px);
+    }
+}
+
+/* Headline */
+h1 {
+    font-size: 60px/68px;
+}
+
+h3 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 60px;
+    color: var(--yellow);
+    margin-top: 50px;
+    text-shadow: -5px -5px 0 var(--red), 5px -5px 0 var(--red),
+        -5px 5px 0 var(--red), 5px 5px 0 var(--red);
+}
+
+h4 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+    color: var(--light_blue);
+    margin-top: 10px;
+}
+
+/* Content */
+td, input, textarea {
+    font-size: 20px;
+    margin: 10px;
+    color: var(--yellow);
+    vertical-align: middle !important;
+    text-shadow: -3px -3px 0 var(--red), 3px -3px 0 var(--red),
+        -3px 3px 0 var(--red), 3px 3px 0 var(--red);
+}
+
+div {
+    font-size: 20px;
+    color: var(--red);
+    vertical-align: middle !important;
+}
+
+input, textarea {
+  background-color: #000;
+  color: var(--light_blue);
+  border: 1px solid var(--dark_blue);
+  width: 100%;
+  text-shadow: none;
+}
+
+.title-item {
+    font-size: 25px;
+    color: var(--yellow);
+    padding: 5px;
+    text-shadow: -3px -3px 0 var(--red), 3px -3px 0 var(--red),
+        -3px 3px 0 var(--red), 3px 3px 0 var(--red);
+}
+
+.text-item {
+    font-size: 25px;
+    padding: 5px;
+    color: #000;
+    text-shadow: -1px -1px 0 var(--light_blue), 1px -1px 0 var(--light_blue),
+        -1px 1px 0 var(--light_blue), 1px 1px 0 var(--light_blue);
+}
+
+.table td, .table th {
+    border-top: 1px solid var(--dark_blue);
+}
+
+/* Divider */
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--dark_blue);
+}
+
+/* Ghosts */
+#list > div:nth-child(odd) {
+    background-image: url("/media/ghost1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list > div:nth-child(even) {
+    background-image: url("/media/ghost2.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list > div.tested {
+    background-image: url("/media/ghost3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+#list {
+    padding: 0px;
+}
+
+#list > * {
+    width: 98px;
+    height: 98px;
+    padding: 10px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff,
+        -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+/* Comments */
+.comment .name, .comment .text {
+    color: #fff;
+}
+
+.comment .name:after {
+    content: ":";
+    color: #fff;
+    margin-right: 5px;
+}
+
+/* Flash */
+.flash {
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    right: 0px;
+    z-index: 99999;
+    text-align: center;
+}
+
+.flash .box {
+    font-size: 25px;
+    color: #fff;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+    background-color: var(--light_blue);
+    border: 1px solid var(--dark_blue);
+}
