@@ -1,0 +1,3 @@
+= Halloween
+
+This project holds different versions of simple halloween advertisement pages
