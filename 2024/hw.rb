@@ -23,7 +23,7 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/hw.db")
 # Config
 configure do
   set :port, 10000
-  set :server 'webrick'
+  set :server, 'webrick'
 end
 
 class Ghost
@@ -50,7 +50,6 @@ end
 post "/ghost" do
   Ghost.create(name: params["name"],
     tested: params["tested"],
-    vacced: params["vacced"],
     comment: params["comment"],
     created_at: Time.now
   )

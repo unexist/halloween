@@ -1,15 +1,28 @@
 /* Colors */
 :root {
-    --yellow: #F9CC00;
-    --red: #CE1D1B;
-    --light_blue: #526079;
-    --dark_blue: #222840;
+    --light_gray: #737471;
+    --dark_gray: #282826;
+    --white: #fafbf8;
+}
+
+.white {
+    color: var(--white);
 }
 
 /* Font */
 @font-face {
-    font-family: 'fright';
-    src: url('/fonts/TheShadowAdventure.ttf') format('truetype');
+    font-family: 'dingbats';
+    src: url('/fonts/HorrorDingbats.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'candle';
+    src: url('/fonts/Horror-Candle.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'newsweekly';
+    src: url('/fonts/newsweekly-Regular.ttf') format('truetype');
 }
 
 #font-switch {
@@ -18,16 +31,28 @@
     font-size: 10px;
 }
 
+.dingbats {
+    font-family: 'dingbats', Arial, sans-serif;
+}
+
+.candle {
+    font-family: 'candle', Arial, sans-serif;
+}
+
+.icon {
+    font-size: 100px;
+}
+
 /* Tags */
 BODY {
-    background-color: #000;
-    font-family: 'fright', Arial, sans-serif;
+    background-color: #101010;
+    font-family: 'newsweekly', Arial, sans-serif;
 }
 
 /* Image */
 #wallpaper {
-    background-image: url(../media/patch.jpg);
-    background-color: #444;
+    background-image: url(../media/house.webp);
+    background-color: #141414;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -45,7 +70,7 @@ BODY {
 
 @keyframes MOVE-BG {
 	0% {
-        transform: scale(1) translate(0, 0);
+        transform: scale(2) translate(0, 0);
     }
 	50% {
         transform: scale(1.2) translate(5px, 5px);
@@ -65,18 +90,18 @@ h3 {
     text-transform: uppercase;
     text-align: center;
     font-size: 60px;
-    color: var(--yellow);
+    color: var(--light_gray);
     margin-top: 50px;
-    text-shadow: -5px -5px 0 var(--red), 5px -5px 0 var(--red),
-        -5px 5px 0 var(--red), 5px 5px 0 var(--red);
+    text-shadow: -5px -5px 0 var(--light_gray), 5px -5px 0 var(--dark_gray),
+        -5px 5px 0 var(--dark_gray), 5px 5px 0 var(--dark_gray);
 }
 
 h4 {
     letter-spacing: 4px;
     text-transform: uppercase;
     text-align: center;
-    font-size: 15px;
-    color: var(--light_blue);
+    font-size: 21px;
+    color: var(--white);
     margin-top: 10px;
 }
 
@@ -84,10 +109,8 @@ h4 {
 td, input, textarea {
     font-size: 20px;
     margin: 10px;
-    color: var(--yellow);
+    color: var(--white);
     vertical-align: middle !important;
-    text-shadow: -3px -3px 0 var(--red), 3px -3px 0 var(--red),
-        -3px 3px 0 var(--red), 3px 3px 0 var(--red);
 }
 
 div {
@@ -98,30 +121,28 @@ div {
 
 input, textarea {
   background-color: #000;
-  color: var(--light_blue);
-  border: 1px solid var(--dark_blue);
+  color: var(--light_gray);
+  border: 1px solid var(--dark_gray);
   width: 100%;
   text-shadow: none;
 }
 
 .title-item {
     font-size: 25px;
-    color: var(--yellow);
+    color: var(--white);
     padding: 5px;
-    text-shadow: -3px -3px 0 var(--red), 3px -3px 0 var(--red),
-        -3px 3px 0 var(--red), 3px 3px 0 var(--red);
+    text-shadow: -3px -3px 0 var(--light_gray), 3px -3px 0 var(--dark_gray),
+        -3px 3px 0 var(--dark_gray), 3px 3px 0 var(--dark_gray);
 }
 
 .text-item {
     font-size: 25px;
     padding: 5px;
-    color: #000;
-    text-shadow: -1px -1px 0 var(--light_blue), 1px -1px 0 var(--light_blue),
-        -1px 1px 0 var(--light_blue), 1px 1px 0 var(--light_blue);
+    color: var(--light_gray);
 }
 
 .table td, .table th {
-    border-top: 1px solid var(--dark_blue);
+    border-top: 1px solid var(--dark_gray);
 }
 
 /* Divider */
@@ -129,29 +150,16 @@ hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-top: 1px solid var(--dark_blue);
+    border-top: 1px solid var(--dark_gray);
 }
 
 /* Ghosts */
 #list > div:nth-child(odd) {
-    background-image: url("/media/ghost1.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 80%;
+    color: var(--light_gray);
 }
 
 #list > div:nth-child(even) {
-    background-image: url("/media/ghost2.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 80%;
-}
-
-#list > div.tested {
-    background-image: url("/media/ghost3.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 80%;
+    color: var(--dark_gray);
 }
 
 #list {
@@ -159,16 +167,12 @@ hr {
 }
 
 #list > * {
-    width: 98px;
-    height: 98px;
     padding: 10px;
     overflow: hidden;
     white-space: pre-wrap;
     text-overflow: ellipsis;
     vertical-align: middle;
     text-align: center;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff,
-        -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 /* Comments */
@@ -198,6 +202,6 @@ hr {
     width: 300px;
     margin: 0px auto;
     padding: 5px;
-    background-color: var(--light_blue);
-    border: 1px solid var(--dark_blue);
+    background-color: var(--dark_gray);
+    border: 1px solid var(--light_gray);
 }
