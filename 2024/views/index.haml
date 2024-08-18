@@ -6,7 +6,7 @@
     %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
     %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
 
-    %title Praelloween im Elitehaus
+    %title Halloween x Einweihung
 
     %script{src: "/js/jquery.js"}
     %script{src: "/js/popper.js"}
@@ -27,8 +27,8 @@
     .row
         .col-md-12
             %span.fontface-top.border-front
-                %h3 Praepraelloween
-                %h4 Feiern, wenn andere noch nicht mal 'nen Kostuem haben!
+                %h3 Halloween x Einweihung
+                %h4.candle Feiern, wenn andere schon laengst genug haben
     -# Medium, large and xtra-large
     .row.d-xs-none.d-sm-none.d-md-none.d-lg-block.d-xl-block
         .col-md-12
@@ -37,19 +37,20 @@
                     .col-md-6
                         .row
                             .col-md-2.title-item Wo:
-                            .col-md-10.text-item Endlich wieder Party im Elitehaus!
+                            .col-md-10.text-item Einweihung an geheimer Location
                         .row
                             .col-md-2.title-item Datum:
-                            .col-md-10.text-item Samstag 29.10.2021 - 18:00
+                            .col-md-10.text-item Samstag 02.11.2024 - 12:00
                         .row
                             .col-md-12.title-item Modus:
                         .row
                             .col-md-12.text-item
-                                Bottleparty - kaltes Bier, Wein und zu viel Captain und Bacardi
-                                haben wir da!
+                                Bottleparty - kaltes Bier, Wein und zu viel Captain und Bacardi sind vorhanden!
+                                .dingbats
+                                    Yes, really!
                     .col-md-6
                         .row
-                            .col-md-12.title-item Dresscode:
+                            .col-md-11.title-item Dresscode:
                         .row.space
                             .col-md-12.text-item
                                 Hexen, Vampire, Monster und aller Art zwielichtige Gestalten
@@ -61,7 +62,8 @@
                                 Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
                                 Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
                                 Curare! Neiiiiiiiiin!
-                                Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
+                                .text-item.white
+                                    Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
     -# Xtra-small and small¬
     .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
         .col-sm-12
@@ -71,7 +73,7 @@
                     .col-sm-12
                         .row
                             .col-sm-2.title-item Wo:
-                            .col-sm-10.text-item Endlich wieder Party im Elitehaus!
+                            .col-sm-10.text-item Einweihung an geheimer Location
                         .row
                             .col-sm-2.title-item Datum:
                             .col-sm-10.text-item Samstag 29.10.2021 - 18:00
@@ -79,8 +81,7 @@
                             .col-sm-12.title-item Modus:
                         .row
                             .col-sm-12.text-item
-                                Bottleparty - kaltes Bier, zu viel Captain und Bacardi
-                                haben wir da!
+                                Bottleparty - kaltes Bier, Wein und zu viel Captain und Bacardi sind vorhanden!
                         .row
                             .col-sm-12.title-item Dresscode:
                         .row.space
@@ -94,7 +95,8 @@
                                 Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
                                 Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
                                 Curare! Neiiiiiiiiin!
-                                Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
+                                .text-item.white
+                                    Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
 
     -# Form
     .row
@@ -111,13 +113,15 @@
                 %tr
                     %td Ich komme..
                     %td
-                        %input{id: "submit_vac", type: "button", value: "..vollkommen klar", tabindex: 3}
+                        %input{id: "submit", class: "dingbats", type: "button", value: "..vollkommen klar", tabindex: 3}
                 %tr{id: "ghosts"}
                     %td{colspan: 3}
                         #list.d-flex.flex-row.flex-wrap
                             -# Ghosts
                             - @ghosts.each do |ghost|
-                                %div{class: ghost.tested ? "tested" : ""}= ghost.name
+                                %div
+                                    %span{class: 'dingbats icon'}= ghost.name[0] rescue "A"
+                                    %span= ghost.name
                 -# Ghosts
                 - @ghosts.each do |ghost|
                     - unless ghost.comment.nil? or ghost.comment.empty?

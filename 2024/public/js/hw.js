@@ -63,7 +63,7 @@ $(document).ready(function() {
     });
 
     /* Handle submit */
-    $("#submit_vac, #submit_tst").click(function(e) {
+    $("#submit").click(function(e) {
         var name = $("#name").val();
 
         if ("" != name) {
@@ -76,16 +76,13 @@ $(document).ready(function() {
                 url: "/ghost",
                 data: {
                     name: name,
-                    tested: isTested,
-                    vacced: "submit_vac" === e.target.id,
                     comment: comment
                 },
 
                 /* Success handler */
                 success: function (data, status) {
                     /* Insert data */
-                    $("#list").append('<div class="' + (isTested ? "tested" : '')
-                        + '">' + name + '</div>');
+                    $("#list").append('<div>' + name + '</div>');
 
                     if ("" != comment) {
                         $('<tr><td class="comment" colspan="3"><span class="name">' + name
