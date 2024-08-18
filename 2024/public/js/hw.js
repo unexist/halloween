@@ -60,6 +60,7 @@ $(document).ready(function() {
     /* Handle font */
     $("#font-switch").click(function() {
       $("body").css("font-family", '"Comic Sans MS", "Comic Sans", cursive');
+      $(".text-item").css("color", "#ffffff");
       $(".dingbats").removeClass("dingbats");
     });
 
