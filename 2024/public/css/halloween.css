@@ -26,7 +26,7 @@
 }
 
 #font-switch {
-    color: #666;
+    color: var(--white);
     font-family: "arial";
     font-size: 10px;
 }
