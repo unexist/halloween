@@ -40,7 +40,7 @@
 }
 
 .icon {
-    font-size: 100px;
+    font-size: 50px;
 }
 
 /* Tags */
@@ -113,6 +113,19 @@ input, textarea {
   border: 1px solid var(--dark_gray);
   width: 100%;
   text-shadow: none;
+}
+
+input[type=button] {
+  background-color: var(--dark_gray);
+  border: 1px solid var(--light_gray);
+  font-family: 'dingbats', Arial, sans-serif;
+  width: 50px;
+  font-size: auto;
+}
+
+input:hover, textarea:hover {
+  color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .title-item {

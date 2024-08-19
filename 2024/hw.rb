@@ -31,8 +31,7 @@ class Ghost
 
   property :id,         Serial
   property :name,       String
-  property :tested,     Boolean
-  property :vacced,     Boolean
+  property :monster,    String
   property :comment,    Text
   property :created_at, DateTime
 end
@@ -49,7 +48,7 @@ end
 
 post "/ghost" do
   Ghost.create(name: params["name"],
-    tested: params["tested"],
+    monster: params["monster"],
     comment: params["comment"],
     created_at: Time.now
   )

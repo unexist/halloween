@@ -17,60 +17,53 @@ $(document).ready(function() {
         flash.append(box);
 
         /* Click to hide box immediately */
-        flash.click(function()
-            {
-                flash.remove();
-            }
-        );
+        flash.click(function() {
+            flash.remove();
+        });
 
         /* Find count of flash elements */
         var flashes = $("div.flash");
 
         $("#page").append(flash);
 
-        if(0 < flashes.length)
-            {
-                flash.css("top", (parseInt(flash.css("top")) -
-                    flashes.length * (flash.outerHeight(true) + 10)) + "px");
-            }
+        if (0 < flashes.length) {
+            flash.css("top", (parseInt(flash.css("top"))
+                - flashes.length * (flash.outerHeight(true) + 10)) + "px");
+        }
 
         /* Display message for some time */
-        flash.fadeIn("slow").delay(5000).hide("slow", function()
-            {
-                var height = flash.outerHeight(true);
+        flash.fadeIn("slow").delay(5000).hide("slow", function() {
+            var height = flash.outerHeight(true);
 
-                flash.remove();
+            flash.remove();
 
-                var flashes = $("div.flash");
+            var flashes = $("div.flash");
 
-                if(0 < flashes.length)
-                    {
-                        for(var i = 0; i < flashes.length; i++)
-                            {
-                                var f = $(flashes[i]);
+            if (0 < flashes.length) {
+                for(var i = 0; i < flashes.length; i++) {
+                    var f = $(flashes[i]);
 
-                                f.css("top", (parseInt(f.css("top")) -
-                                    - height + 10) + "px");
-                            }
-                    }
+                    f.css("top", (parseInt(f.css("top")) -
+                        - height + 10) + "px");
+                }
             }
-        );
+        });
     }
 
     /* Handle font */
     $("#font-switch").click(function() {
-      $("body").css("font-family", '"Comic Sans MS", "Comic Sans", arial');
-      $(".text-item").css("color", "#ffffff");
-      $(".dingbats").removeClass("dingbats");
+        $("body").css("font-family", '"Comic Sans MS", "Comic Sans", arial');
+        $(".text-item").css("color", "#ffffff");
+        $(".dingbats").removeClass("dingbats");
     });
 
     /* Handle submit */
-    $("#submit").click(function(e) {
+    $(".submit").click(function(e) {
         var name = $("#name").val();
 
         if ("" != name) {
-            var isTested = "submit_tst" === e.target.id;
             var comment = $("#comment").val();
+            var monster = $(this).val();
 
             /* Store data */
             $.ajax({
@@ -78,13 +71,15 @@ $(document).ready(function() {
                 url: "/ghost",
                 data: {
                     name: name,
+                    monster: monster, 
                     comment: comment
                 },
 
                 /* Success handler */
                 success: function (data, status) {
                     /* Insert data */
-                    $("#list").append('<div>' + name + '</div>');
+                    $("#list").prepend($('<div><span class="dingbats icon" style="display: block; margin-top: 30px">'
+                        + monster + '</span><span>' + name + '</span></div>'));
 
                     if ("" != comment) {
                         $('<tr><td class="comment" colspan="3"><span class="name">' + name
@@ -107,8 +102,7 @@ $(document).ready(function() {
                 }
             });
 
-        }
-        else {
+        } else {
             $("#name").css("border-color", "red");
             showToast("Fehlt da nicht irgendwas?");
         }

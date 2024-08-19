@@ -113,16 +113,18 @@
                     %td{colspan: 2}
                         %textarea{id: "comment", rows: 2, tabindex: 2}
                 %tr
-                    %td Ich komme..
+                    %td Ich komme als..
                     %td
-                        %input{id: "submit", class: "dingbats", type: "button", value: "..vollkommen klar", tabindex: 3}
+                        .d-flex.flex-wrap.justify-content-center
+                            - ('A'..'Z').each_with_index do |c, idx|
+                                %input{class: "submit", type: "button", value: c, tabindex: 3 + idx}
                 %tr{id: "ghosts"}
                     %td{colspan: 3}
                         #list.d-flex.flex-row.flex-wrap
                             -# Ghosts
                             - @ghosts.each do |ghost|
                                 %div
-                                    %span{class: 'dingbats icon'}= ghost.name[0] rescue "A"
+                                    %span{class: 'dingbats icon'}= ghost.monster rescue "A"
                                     %span= ghost.name
                 -# Ghosts
                 - @ghosts.each do |ghost|
