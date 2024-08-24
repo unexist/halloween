@@ -98,7 +98,7 @@ $(document).ready(function() {
 
                 /* Error handler */
                 error: function (xhr, status, e) {
-                    showToast("Das ging schief: " + status);
+                    showToast("Das ging schief: " + xhr.responseText);
                 }
             });
 

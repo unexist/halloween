@@ -54,7 +54,7 @@ post "/ghost" do
       created_at: Time.now
     )
   rescue DataObjects::IntegrityError => err
-    return 400
+    halt 400, "Kennen wir schon!"
   end
 
   200
