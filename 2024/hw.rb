@@ -30,7 +30,7 @@ class Ghost
   include DataMapper::Resource
 
   property :id,         Serial
-  property :name,       String
+  property :name,       String, :unique_index => :index_name_u
   property :monster,    String
   property :comment,    Text
   property :created_at, DateTime
@@ -47,11 +47,15 @@ get "/" do
 end
 
 post "/ghost" do
-  Ghost.create(name: params["name"],
-    monster: params["monster"],
-    comment: params["comment"],
-    created_at: Time.now
-  )
+  begin
+    Ghost.create(name: params["name"],
+      monster: params["monster"],
+      comment: params["comment"],
+      created_at: Time.now
+    )
+  rescue DataObjects::IntegrityError => err
+    return 400
+  end
 
   200
 end
