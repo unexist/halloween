@@ -1,3 +1,14 @@
+/*
+ * @package hw
+ *
+ * @file jquery handler
+ * @author Christoph Kappel <christoph@unexist.dev>
+ * @version $Id: 2024/koppe.rb,v 0 1724858416.0-7200 unexist $
+ *
+ * This program can be distributed under the terms of the GNU GPLv3.
+ * See the file COPYING for details.
+ */
+
 $(document).ready(function() {
   var dots = $("#dots li");
 
