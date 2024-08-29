@@ -1,135 +1,133 @@
 !!!
 %html
+  %head
+      %meta{charset: "utf-8"}
+      %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
+      %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
 
-%head
-    %meta{charset: "utf-8"}
-    %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
-    %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
+      %title Praelloween im Elitehaus
 
-    %title Praelloween im Elitehaus
+      %script{src: "/js/jquery.js"}
+      %script{src: "/js/popper.js"}
+      %script{src: "/js/bootstrap.min.js"}
+      %script{src: "/js/hw.js"}
 
-    %script{src: "/js/jquery.js"}
-    %script{src: "/js/popper.js"}
-    %script{src: "/js/bootstrap.min.js"}
-    %script{src: "/js/hw.js"}
+      %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+      %link{href: "/css/halloween.css", rel: "stylesheet"}
 
-    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
-    %link{href: "/css/halloween.css", rel: "stylesheet"}
-
-%body
-
-.fixed-top.text-center
-    %a{id: "font-switch", href: "#"} Ich kann das nicht lesen!
+  %body
+    .fixed-top.text-center
+        %a{id: "font-switch", href: "#"} Ich kann das nicht lesen!
 
 
--# Front
-#page.container
-    .row
-        .col-md-12
-            %span.fontface-top.border-front
-                %h3 Praelloween
-                %h4 Feiern, wenn andere noch nicht mal 'nen Kostuem haben!
-    -# Medium, large and xtra-large
-    .row.d-xs-none.d-sm-none.d-md-none.d-lg-block.d-xl-block
-        .col-md-12
-            .container
-                .row
-                    .col-md-6.image-box
-                        .gap
-                            %img.image{src: "media/halloween.jpg"}
-                    .col-md-6
-                        .container
-                            .row
-                                .col-md-2.title-item Wo:
-                                .col-md-10.text-item Endlich wieder Party im Elitehaus!
-                            .row
-                                .col-md-2.title-item Datum:
-                                .col-md-10.text-item Samstag 30.10.2021 - 18:00
-                            .row
-                                .col-md-12.title-item Modus:
-                            .row
-                                .col-md-12.text-item
-                                    Bottleparty - kaltes Bier, zu viel Captain und Bacardi
-                                    haben wir da!
-                            .row
-                                .col-md-12.title-item Dresscode:
-                            .row.space
-                                .col-md-12.text-item
-                                    Hexen, Vampire, Monster und aller Art zwielichtige Gestalten
-                                    sind willkommen!
-                            .row
-                                .col-md-12.title-item Kulinarik:
-                            .row.space
-                                .col-md-12.text-item
-                                    Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
-                                    Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
-                                    Curare! Neiiiiiiiiin!
-                                    Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
-    -# Xtra-small and small
-    .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
-        .col-sm-12
-            .container
-                .row
-                    .col-sm-12.image-box
-                        .gap
-                            %img.image{src: "media/halloween.jpg"}
-                .row
-                    .col-sm-12
-                        .container
-                            .row
-                                .col-sm-2.title-item Wo:
-                                .col-md-10.text-item Endlich wieder Party im Elitehaus!
-                            .row
-                                .col-sm-2.title-item Datum:
-                                .col-sm-10.text-item Samstag 30.10.2021 - 18:00
-                            .row
-                                .col-sm-12.title-item Modus:
-                            .row
-                                .col-sm-12.text-item
-                                    Bottleparty - kaltes Bier, zu viel Captain und Bacardi
-                                    haben wir da!
-                            .row
-                                .col-sm-12.title-item Dresscode:
-                            .row.space
-                                .col-sm-12.text-item
-                                    Hexen, Vampire, Monster und aller Art zwielichtige Gestalten
-                                    sind willkommen!
-                            .row
-                                .col-sm-12.title-item Kulinarik:
-                            .row.space
-                                .col-sm-12.text-item
-                                    Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
-                                    Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
-                                    Curare! Neiiiiiiiiin!
-                                    Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
-    -# Form
-    .row
-        .col-md-12
-            %table.table{id: "comments"}
-                %tr
-                    %td Name:
-                    %td{colspan: 2}
-                        %input.input-lg.space{id: "name", type: "text", tabindex: 1}
-                %tr
-                    %td Kommentar:
-                    %td{colspan: 2}
-                        %textarea{id: "comment", rows: 2, tabindex: 2}
-                %tr
-                    %td Ich komme als..
-                    %td
-                        %input{id: "submit_vac", type: "button", value: "Geimpfte/r!", tabindex: 3}
-                    %td
-                        %input{id: "submit_tst", type: "button", value: "Getestete/r!", tabindex: 4}
-                %tr{id: "ghosts"}
-                    %td{colspan: 3}
-                        #list.d-flex.flex-row.flex-wrap
-                            -# Ghosts
-                            - @ghosts.each do |ghost|
-                                %div{class: ghost.tested ? "tested" : ""}= ghost.name
-                -# Ghosts
-                - @ghosts.each do |ghost|
-                    - unless ghost.comment.nil? or ghost.comment.empty?
-                        %tr
-                            %td.comment{colspan: 3}
-                                %span.name= ghost.name
-                                %span.text= ghost.comment
+    -# Front
+    #page.container
+        .row
+            .col-md-12
+                %span.fontface-top.border-front
+                    %h3 Praelloween
+                    %h4 Feiern, wenn andere noch nicht mal 'nen Kostuem haben!
+        -# Medium, large and xtra-large
+        .row.d-xs-none.d-sm-none.d-md-none.d-lg-block.d-xl-block
+            .col-md-12
+                .container
+                    .row
+                        .col-md-6.image-box
+                            .gap
+                                %img.image{src: "media/halloween.jpg"}
+                        .col-md-6
+                            .container
+                                .row
+                                    .col-md-2.title-item Wo:
+                                    .col-md-10.text-item Endlich wieder Party im Elitehaus!
+                                .row
+                                    .col-md-2.title-item Datum:
+                                    .col-md-10.text-item Samstag 30.10.2021 - 18:00
+                                .row
+                                    .col-md-12.title-item Modus:
+                                .row
+                                    .col-md-12.text-item
+                                        Bottleparty - kaltes Bier, zu viel Captain und Bacardi
+                                        haben wir da!
+                                .row
+                                    .col-md-12.title-item Dresscode:
+                                .row.space
+                                    .col-md-12.text-item
+                                        Hexen, Vampire, Monster und aller Art zwielichtige Gestalten
+                                        sind willkommen!
+                                .row
+                                    .col-md-12.title-item Kulinarik:
+                                .row.space
+                                    .col-md-12.text-item
+                                        Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
+                                        Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
+                                        Curare! Neiiiiiiiiin!
+                                        Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
+        -# Xtra-small and small
+        .row.d-xs-block.d-sm-block.d-md-block.d-lg-none.d-xl-none
+            .col-sm-12
+                .container
+                    .row
+                        .col-sm-12.image-box
+                            .gap
+                                %img.image{src: "media/halloween.jpg"}
+                    .row
+                        .col-sm-12
+                            .container
+                                .row
+                                    .col-sm-2.title-item Wo:
+                                    .col-md-10.text-item Endlich wieder Party im Elitehaus!
+                                .row
+                                    .col-sm-2.title-item Datum:
+                                    .col-sm-10.text-item Samstag 30.10.2021 - 18:00
+                                .row
+                                    .col-sm-12.title-item Modus:
+                                .row
+                                    .col-sm-12.text-item
+                                        Bottleparty - kaltes Bier, zu viel Captain und Bacardi
+                                        haben wir da!
+                                .row
+                                    .col-sm-12.title-item Dresscode:
+                                .row.space
+                                    .col-sm-12.text-item
+                                        Hexen, Vampire, Monster und aller Art zwielichtige Gestalten
+                                        sind willkommen!
+                                .row
+                                    .col-sm-12.title-item Kulinarik:
+                                .row.space
+                                    .col-sm-12.text-item
+                                        Vergiftete Kuchen und toedliche Plaetzchen! Eine Bazillentorte!
+                                        Verdorbene Makronen! Torte mit Schlangengift! Kirschtorte mit
+                                        Curare! Neiiiiiiiiin!
+                                        Wir bestellen Pizza, freuen uns aber ueber kleine Treats.
+        -# Form
+        .row
+            .col-md-12
+                %table.table{id: "comments"}
+                    %tr
+                        %td Name:
+                        %td{colspan: 2}
+                            %input.input-lg.space{id: "name", type: "text", tabindex: 1}
+                    %tr
+                        %td Kommentar:
+                        %td{colspan: 2}
+                            %textarea{id: "comment", rows: 2, tabindex: 2}
+                    %tr
+                        %td Ich komme als..
+                        %td
+                            %input{id: "submit_vac", type: "button", value: "Geimpfte/r!", tabindex: 3}
+                        %td
+                            %input{id: "submit_tst", type: "button", value: "Getestete/r!", tabindex: 4}
+                    %tr{id: "ghosts"}
+                        %td{colspan: 3}
+                            #list.d-flex.flex-row.flex-wrap
+                                -# Ghosts
+                                - @ghosts.each do |ghost|
+                                    %div{class: ghost.tested ? "tested" : ""}= ghost.name
+                    -# Ghosts
+                    - @ghosts.each do |ghost|
+                        - unless ghost.comment.nil? or ghost.comment.empty?
+                            %tr
+                                %td.comment{colspan: 3}
+                                    %span.name= ghost.name
+                                    %span.text= ghost.comment
