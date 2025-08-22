@@ -1,8 +1,8 @@
 syntax: glob
 
-target/*
-bin/*
-pkg/*
-www/node_modules/*
+./target/*
+./bin/*
+./pkg/*
+./www/node_modules/*
 
-wasm-pack.log
+./wasm-pack.log
