@@ -1,0 +1,28 @@
+version: '3'
+
+env:
+  NODE_OPTIONS: --openssl-legacy-provider 
+
+tasks:
+  build:
+    cmds:
+      - wasm-pack build
+
+  run:
+    dir: www
+    cmds:
+      - npm run start
+
+  install:
+    dir: www
+    cmds:
+      - npm install
+
+  test:
+    cmds:
+      - cargo test -- --nocapture {{.CLI_ARGS}}
+
+  clean:
+    cmds:
+      - cargo clean
+
