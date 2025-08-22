@@ -1,123 +1,122 @@
 !!!
 %html
+  %head
+      %meta{charset: "utf-8"}
+      %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
+      %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
 
-%head
-    %meta{charset: "utf-8"}
-    %meta{"http-equiv": "X-UA-Compatible", content: "IEedge"}
-    %meta{name: "viewport", content: "widthdevice-width, initial-scale1"}
+      %title Elitehaus Halloween
 
-    %title Elitehaus Halloween
+      %script{src: "/js/jquery.js"}
+      %script{src: "/js/bootstrap.js"}
+      %script{src: "/js/bootstrap.min.js"}
+      %script{src: "/js/hw.js"}
 
-    %script{src: "/js/jquery.js"}
-    %script{src: "/js/bootstrap.js"}
-    %script{src: "/js/bootstrap.min.js"}
-    %script{src: "/js/hw.js"}
+      %link{href: "/css/bootstrap.css", rel: "stylesheet"}
+      %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+      %link{href: "/css/halloween.css", rel: "stylesheet"}
 
-    %link{href: "/css/bootstrap.css", rel: "stylesheet"}
-    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
-    %link{href: "/css/halloween.css", rel: "stylesheet"}
+  %body{style: "background-color: black"}
 
-%body{style: "background-color: black"}
+    -# Front
+    .container
+        .top-part
+            .row
+                .col-md-12
+                    .top-headline
+                        %span.fontface-top.border-front
+                            %h3 Haunted Elitehaus
+            .row
+                .col-md-12
+                    .board
 
--# Front
-.container
-    .top-part
+            .row
+                .col-md-12
+                    .bottom
+                        %span.fontface-bottom.border-front SCROLL DOWN
+
+    -# Information
+    .container
         .row
-            .col-md-12
-                .top-headline
-                    %span.fontface-top.border-front
-                        %h3 Haunted Elitehaus
-        .row
-            .col-md-12
-                .board
-
-        .row
-            .col-md-12
-                .bottom
-                    %span.fontface-bottom.border-front SCROLL DOWN
-
--# Information
-.container
-    .row
-        .col-md-3
-            .skull
-        .col-md-6
-            %h3 Location of the gray:
-        .col-md-3
-            .skull
-
-    .row
-        .col-md-12
-            %hr
-
-    .info
-        .row
-            .col-xs-5
-                .top-item Address:
-        .row.space
-            .col-xs-5
-                %p You know where the legendary Elitehaus is located!
-
-        .row
-            .col-xs-6
-                .top-item Date:
-        .row.space
-            .col-xs-6
-                %p 31.10.2017 - 8:00pm
-
-        .row
-            .col-xs-6
-                .top-item Mode:
-        .row.space
-            .col-xs-6
-                %p It's a Bottleparty - bring your own stuff!
-
-        .row
-            .col-xs-6
-                .top-item Dresscode:
-        .row.space
-            .col-xs-6
-                %p Halloween thrives on twisted imagination! Be creative!
-
-        .row
-            .col-xs-6
-                .top-item Other:
-        .row.space
-            .col-xs-6
-                %p We're going to provide some scary treats from the house. However, if someone would like to bring some food, we would be very grateful.
+            .col-md-3
+                .skull
+            .col-md-6
+                %h3 Location of the gray:
+            .col-md-3
+                .skull
 
         .row
             .col-md-12
-                .bottom
-                    %span.fontface-bottom.border-front SCROLL DOWN
+                %hr
 
--# Guestbook
-.container
-    .row
-        .col-md-3
-            .skull
-        .col-md-6
-            %h3 Guestbook:
-        .col-md-3
-            .skull
+        .info
+            .row
+                .col-xs-5
+                    .top-item Address:
+            .row.space
+                .col-xs-5
+                    %p You know where the legendary Elitehaus is located!
 
-    .row.info
-        %table.table{id: "list"}
-            - @ghosts.each do |ghost|
-                %tr.entry
-                    %td= ghost.name
-                    %td{colspan: 2}= ghost.text
+            .row
+                .col-xs-6
+                    .top-item Date:
+            .row.space
+                .col-xs-6
+                    %p 31.10.2017 - 8:00pm
 
-            %tr
-                %td Name:
-                %td
-                    %input.input-lg.space{id: "name", type: "text", tabindex: 1}
-                %td.text-right
-                    %input{id: "submit", type: "button", value: "Gimme Braaiins!", tabindex: 3}
+            .row
+                .col-xs-6
+                    .top-item Mode:
+            .row.space
+                .col-xs-6
+                    %p It's a Bottleparty - bring your own stuff!
 
-            %tr
-                %td Boooo?
-                %td{colspan: 2}
-                    %textarea.space{id: "text", rows: 5, tabindex: 2}
+            .row
+                .col-xs-6
+                    .top-item Dresscode:
+            .row.space
+                .col-xs-6
+                    %p Halloween thrives on twisted imagination! Be creative!
+
+            .row
+                .col-xs-6
+                    .top-item Other:
+            .row.space
+                .col-xs-6
+                    %p We're going to provide some scary treats from the house. However, if someone would like to bring some food, we would be very grateful.
+
+            .row
+                .col-md-12
+                    .bottom
+                        %span.fontface-bottom.border-front SCROLL DOWN
+
+    -# Guestbook
+    .container
+        .row
+            .col-md-3
+                .skull
+            .col-md-6
+                %h3 Guestbook:
+            .col-md-3
+                .skull
+
+        .row.info
+            %table.table{id: "list"}
+                - @ghosts.each do |ghost|
+                    %tr.entry
+                        %td= ghost.name
+                        %td{colspan: 2}= ghost.text
+
+                %tr
+                    %td Name:
+                    %td
+                        %input.input-lg.space{id: "name", type: "text", tabindex: 1}
+                    %td.text-right
+                        %input{id: "submit", type: "button", value: "Gimme Braaiins!", tabindex: 3}
+
+                %tr
+                    %td Boooo?
+                    %td{colspan: 2}
+                        %textarea.space{id: "text", rows: 5, tabindex: 2}
 
 

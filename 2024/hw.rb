@@ -6,7 +6,7 @@
 # @author Christoph Kappel <christoph@unexist.dev>
 # @version $Id$
 #
-# This program can be distributed under the terms of the GNU GPLv2.
+# This program can be distributed under the terms of the GNU GPLv3.
 # See the file COPYING for details.
 #
 
@@ -30,7 +30,7 @@ class Ghost
   include DataMapper::Resource
 
   property :id,         Serial
-  property :name,       String
+  property :name,       String, :unique_index => :index_name_u
   property :monster,    String
   property :comment,    Text
   property :created_at, DateTime
@@ -47,11 +47,15 @@ get "/" do
 end
 
 post "/ghost" do
-  Ghost.create(name: params["name"],
-    monster: params["monster"],
-    comment: params["comment"],
-    created_at: Time.now
-  )
+  begin
+    Ghost.create(name: params["name"],
+      monster: params["monster"],
+      comment: params["comment"],
+      created_at: Time.now
+    )
+  rescue DataObjects::IntegrityError => err
+    halt 400, "Kennen wir schon!"
+  end
 
   200
 end

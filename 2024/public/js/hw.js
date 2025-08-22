@@ -1,3 +1,14 @@
+/*
+ * @package hw
+ *
+ * @file jquery handler
+ * @author Christoph Kappel <christoph@unexist.dev>
+ * @version $Id$
+ *
+ * This program can be distributed under the terms of the GNU GPLv3.
+ * See the file COPYING for details.
+ */
+
 $(document).ready(function() {
 
     /**
@@ -98,7 +109,7 @@ $(document).ready(function() {
 
                 /* Error handler */
                 error: function (xhr, status, e) {
-                    showToast("Das ging schief: " + status);
+                    showToast("Das ging schief: " + xhr.responseText);
                 }
             });
 
