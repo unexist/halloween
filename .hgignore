@@ -1,8 +1,5 @@
 syntax: glob
 
 2025/target
-2025/bin
-2025/pkg
-2025/www/node_modules
-
-2025/wasm-pack.log
+2025/dist
+2025/.idea
