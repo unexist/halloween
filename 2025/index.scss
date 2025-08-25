@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
 }
@@ -8,10 +7,6 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-
-  background-image: url("images/circle.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
   font-size: 1.5rem;
 }
 
@@ -19,4 +14,10 @@ main {
   color: #000;
   font-family: sans-serif;
   text-align: center;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
 }
