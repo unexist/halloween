@@ -76,7 +76,6 @@ canvas {
 
 @media (max-width: 600px) {
   #wrapper {
-    top: 70%;
-    height: 30%;
+    height: inherit;
   }
 }
