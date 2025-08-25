@@ -16,12 +16,14 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::{window, HtmlCanvasElement, HtmlImageElement, WebGlFramebuffer, WebGlRenderingContext as GL, WebGlRenderingContext, WebGlTexture};
 use yew::{html, Component, Context, Html, NodeRef};
+use regex::Regex;
 
 #[derive(Default)]
 pub struct App {
     node_ref: NodeRef,
     width: u32,
     height: u32,
+    is_mobile: bool,
 }
 
 impl Component for App {
@@ -29,11 +31,14 @@ impl Component for App {
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        let win = window().unwrap();
+        let win = window().expect("Window must be present");
+        let maybe_useragent = win.navigator().user_agent();
+        let regex = Regex::new("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini").expect("Regex failed");
 
         Self {
             width: (win.inner_width().unwrap().as_f64().unwrap() * win.device_pixel_ratio()) as u32,
             height: (win.inner_height().unwrap().as_f64().unwrap() * win.device_pixel_ratio()) as u32,
+            is_mobile: maybe_useragent.is_ok() && regex.is_match(&*maybe_useragent.unwrap()),
             ..Default::default()
         }
     }
@@ -46,7 +51,11 @@ impl Component for App {
                         <h1>{ "Welcome to Halloween Land!" }</h1>
                         <h2>{ "Auch dieses Jahr oeffnen sich die Pforten" }</h2>
                         <h2>{ "Es stehen kaltes Bier und allerlei toedliche Speisen bereit!" }</h2>
-                        <h3>{ "Wann: 31.10. Wie: Verkleidet! Wo: Essen" }</h3>
+                        <div id="box">
+                            <h3>{ "Wann: 31.10." }</h3>
+                            <h3>{ "Wie: Verkleidet!" }</h3>
+                            <h3>{ "Wo: Essen" }</h3>
+                        </div>
                     </div>
                 </div>
                 <canvas ref={self.node_ref.clone()} />
@@ -195,6 +204,7 @@ impl App {
             let cb = cb.clone();
             let width = self.width;
             let height = self.height;
+            let is_mobile = self.is_mobile;
 
             let performance = web_sys::window().unwrap()
                 .performance().expect("Performance should be available");
@@ -222,7 +232,8 @@ impl App {
 
                 //gl.uniform1f(Some(&gl.get_uniform_location(&shader_program, "u_aspectRatio").unwrap()), aspect_ratio);
 
-                gl.uniform1i(Some(&gl.get_uniform_location(&shader_program, "u_isMobile").unwrap()), 0);
+                gl.uniform1i(Some(&gl.get_uniform_location(&shader_program, "u_isMobile").unwrap()),
+                             if is_mobile { 1 } else { 0 });
 
                 gl.active_texture(GL::TEXTURE1);
                 gl.bind_texture(GL::TEXTURE_2D, Some(&tex_image));
