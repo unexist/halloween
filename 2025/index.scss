@@ -1,23 +1,66 @@
+:root {
+  --light-purple: #770062;
+  --darker-purple: #390024;
+}
+
+
+@font-face {
+  font-family: "SpookyHalloween";
+  src: url("fonts/SpookyHalloween.otf");
+}
+
 html, body {
-  height: 100%;
   margin: 0;
+  font-family: "SpookyHalloween";
+  background-color: #000;
 }
 
-body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
+h1 {
+  font-size: 4rem;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-shadow: 3px 0 #000;
 }
 
-main {
-  color: #000;
-  font-family: sans-serif;
-  text-align: center;
+h2 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  text-shadow: -3px 0px var(--darker-purple),
+    0px -3px var(--darker-purple),
+    3px 0 var(--darker-purple),
+    0 3px var(--darker-purple);
+  color: var(--light-purple);
+}
+
+h3 {
+  font-size: 2.5rem;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-shadow: 3px 0 #000;
+  text-align: justify-all;
 }
 
 canvas {
   display: block;
   width: 100vw;
   height: 100vh;
+  z-index: 10;
+  background-image: url("images/circle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
