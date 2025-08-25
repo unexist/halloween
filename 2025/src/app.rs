@@ -221,7 +221,7 @@ impl App {
                 gl.uniform2f(Some(&gl.get_uniform_location(&shader_program, "u_resolution").unwrap()),
                              width as f32, height as f32);
                 gl.uniform2fv_with_f32_array(Some(&gl.get_uniform_location(&shader_program, "u_imageSize").unwrap()),
-                                             &[2000 as f32, 1024 as f32]);
+                                             if is_mobile { &[200 as f32, 102 as f32] } else { &[2000 as f32, 1024 as f32] });
 
                 let current_time = performance.now() * 0.001;
 
