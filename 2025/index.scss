@@ -73,3 +73,10 @@ canvas {
 #box > * {
   flex-grow: 1;
 }
+
+@media (max-width: 600px) {
+  #wrapper {
+    top: 50%;
+    height: 50%;
+  }
+}
