@@ -170,13 +170,13 @@ impl App {
 
         Self::init_texture(&gl, &texture_green, self.width, self.height);
 
-        let framebuffer_green = Self::create_framebuffer(&gl, &texture_green);
+        let _framebuffer_green = Self::create_framebuffer(&gl, &texture_green);
 
         let texture_red = Self::create_texture(&gl);
 
         Self::init_texture(&gl, &texture_red, self.width, self.height);
 
-        let framebuffer_red = Self::create_framebuffer(&gl, &texture_red);
+        let _framebuffer_red = Self::create_framebuffer(&gl, &texture_red);
 
         // Load and set up image texture
         let tex_image = Self::create_texture(&gl);
