@@ -192,7 +192,7 @@ impl App {
 
         let image = HtmlImageElement::new().unwrap();
 
-        image.set_src("images/circle.png");
+        image.set_src(if self.is_mobile { "images/sprites.png" }  else { "images/circle.png" });
 
         // Gloo-render's request_animation_frame has this extra closure
         // wrapping logic running every frame, unnecessary cost.
