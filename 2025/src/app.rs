@@ -174,19 +174,6 @@ impl App {
         gl.enable_vertex_attrib_array(position);
         gl.vertex_attrib_pointer_with_i32(position, 2, GL::FLOAT, false, 0, 0);
 
-        // Create textures and framebuffers for green and red shaders
-        let texture_green = Self::create_texture(&gl);
-
-        Self::init_texture(&gl, &texture_green, self.width, self.height);
-
-        let _framebuffer_green = Self::create_framebuffer(&gl, &texture_green);
-
-        let texture_red = Self::create_texture(&gl);
-
-        Self::init_texture(&gl, &texture_red, self.width, self.height);
-
-        let _framebuffer_red = Self::create_framebuffer(&gl, &texture_red);
-
         // Load and set up image texture
         let tex_image = Self::create_texture(&gl);
 
@@ -206,7 +193,7 @@ impl App {
             let height = self.height;
             let is_mobile = self.is_mobile;
 
-            let performance = web_sys::window().unwrap()
+            let performance = window().unwrap()
                 .performance().expect("Performance should be available");
 
             move || {
@@ -227,10 +214,6 @@ impl App {
 
                 gl.uniform1f(Some(&gl.get_uniform_location(&shader_program, "u_time").unwrap()),
                              current_time as f32);
-
-                //let aspect_ratio = (width / height) as f32;
-
-                //gl.uniform1f(Some(&gl.get_uniform_location(&shader_program, "u_aspectRatio").unwrap()), aspect_ratio);
 
                 gl.uniform1i(Some(&gl.get_uniform_location(&shader_program, "u_isMobile").unwrap()),
                              if is_mobile { 1 } else { 0 });
