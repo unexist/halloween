@@ -40,7 +40,17 @@ impl Component for App {
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
-            <canvas ref={self.node_ref.clone()} />
+            <>
+                <div id="wrapper">
+                    <div>
+                        <h1>{ "Welcome to Halloween Land!" }</h1>
+                        <h2>{ "Auch dieses Jahr oeffnen sich die Pforten" }</h2>
+                        <h2>{ "Es stehen kaltes Bier und allerlei toedliche Speisen bereit!" }</h2>
+                        <h3>{ "Wann: 31.10. Wie: Verkleidet! Wo: Essen" }</h3>
+                    </div>
+                </div>
+                <canvas ref={self.node_ref.clone()} />
+            </>
         }
     }
 
@@ -113,7 +123,7 @@ impl App {
         let vert_code = include_str!("./hw.vert");
         let frag_code = include_str!("./hw.frag");
 
-        // Create a buffer for the swaures's positions
+        // Create a buffer for the squares's positions
         let vertices: Vec<f32> = vec![
             -1.0, -1.0,
             1.0, -1.0,
@@ -152,28 +162,28 @@ impl App {
         // Set up position attribute
         let position = gl.get_attrib_location(&shader_program, "a_position") as u32;
 
-        gl.vertex_attrib_pointer_with_i32(position, 2, GL::FLOAT, false, 0, 0);
         gl.enable_vertex_attrib_array(position);
+        gl.vertex_attrib_pointer_with_i32(position, 2, GL::FLOAT, false, 0, 0);
 
         // Create textures and framebuffers for green and red shaders
-        let textureGreen = Self::create_texture(&gl);
+        let texture_green = Self::create_texture(&gl);
 
-        Self::init_texture(&gl, &textureGreen, self.width, self.height);
+        Self::init_texture(&gl, &texture_green, self.width, self.height);
 
-        let framebufferGreen = Self::create_framebuffer(&gl, &textureGreen);
+        let framebuffer_green = Self::create_framebuffer(&gl, &texture_green);
 
-        let textureRed = Self::create_texture(&gl);
+        let texture_red = Self::create_texture(&gl);
 
-        Self::init_texture(&gl, &textureRed, self.width, self.height);
+        Self::init_texture(&gl, &texture_red, self.width, self.height);
 
-        let framebufferRed = Self::create_framebuffer(&gl, &textureRed);
+        let framebuffer_red = Self::create_framebuffer(&gl, &texture_red);
 
         // Load and set up image texture
-        let texImage = Self::create_texture(&gl);
+        let tex_image = Self::create_texture(&gl);
 
         let image = HtmlImageElement::new().unwrap();
 
-        image.set_src("images/circle.jpg");
+        image.set_src("images/circle.png");
 
         // Gloo-render's request_animation_frame has this extra closure
         // wrapping logic running every frame, unnecessary cost.
@@ -191,20 +201,22 @@ impl App {
 
             move || {
                 // This should repeat every frame
-                gl.bind_texture(GL::TEXTURE_2D, Some(&texImage));
+                gl.bind_texture(GL::TEXTURE_2D, Some(&tex_image));
                 gl.tex_image_2d_with_u32_and_u32_and_image(GL::TEXTURE_2D, 0, GL::RGBA as i32, GL::RGBA,
                                                            GL::UNSIGNED_BYTE, &image).expect("Failed to set image");
 
                 gl.viewport(0, 0, width as i32, height as i32);
 
-                gl.use_program(Some(&shader_program));
                 gl.bind_framebuffer(GL::FRAMEBUFFER, None);
-                gl.uniform2f(Some(&gl.get_uniform_location(&shader_program, "u_resolution").unwrap()), width as f32, height as f32);
-                gl.uniform2fv_with_f32_array(Some(&gl.get_uniform_location(&shader_program, "u_imageSize").unwrap()), &[1794 as f32, 1024 as f32]);
+                gl.uniform2f(Some(&gl.get_uniform_location(&shader_program, "u_resolution").unwrap()),
+                             width as f32, height as f32);
+                gl.uniform2fv_with_f32_array(Some(&gl.get_uniform_location(&shader_program, "u_imageSize").unwrap()),
+                                             &[2000 as f32, 1024 as f32]);
 
                 let current_time = performance.now() * 0.001;
 
-                gl.uniform1f(Some(&gl.get_uniform_location(&shader_program, "u_time").unwrap()), current_time as f32);
+                gl.uniform1f(Some(&gl.get_uniform_location(&shader_program, "u_time").unwrap()),
+                             current_time as f32);
 
                 //let aspect_ratio = (width / height) as f32;
 
@@ -213,7 +225,7 @@ impl App {
                 gl.uniform1i(Some(&gl.get_uniform_location(&shader_program, "u_isMobile").unwrap()), 0);
 
                 gl.active_texture(GL::TEXTURE1);
-                gl.bind_texture(GL::TEXTURE_2D, Some(&texImage));
+                gl.bind_texture(GL::TEXTURE_2D, Some(&tex_image));
                 gl.uniform1i(Some(&gl.get_uniform_location(&shader_program, "iChannel0").unwrap()), 0);
                 gl.draw_arrays(GL::TRIANGLES, 0, 6);
 
