@@ -13,6 +13,11 @@
   src: url("fonts/HalloweenHorrors.ttf");
 }
 
+@font-face {
+  font-family: "HelpMe";
+  src: url("fonts/HelpMe.ttf");
+}
+
 html, body {
   margin: 0;
   background-color: #000;
@@ -45,7 +50,6 @@ h3 {
   padding: 0;
   margin: 0;
   text-shadow: 3px 0 #000;
-  text-align: justify-all;
   font-family: "CuteMonster";
 }
 
@@ -83,6 +87,30 @@ canvas {
 #box > * {
   flex-grow: 1;
   margin: 5px;
+}
+
+#box :first-child {
+  text-align: right;
+}
+
+#box :last-child {
+  text-align: left;
+}
+
+#disclaimer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+}
+
+#disclaimer > div {
+  font-size: 1rem;
+  color: #fff;
+  font-family: "HelpMe";
 }
 
 @media screen and (max-width: 600px) {

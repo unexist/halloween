@@ -61,6 +61,9 @@ impl Component for App {
                             <h3>{ "Wo: Essen" }</h3>
                         </div>
                     </div>
+                    <div id="disclaimer">
+                        <div>{ "Best viewed in a desktop browser!" }</div>
+                    </div>
                 </div>
                 <canvas ref={self.node_ref.clone()} />
             </>
