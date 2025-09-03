@@ -62,7 +62,7 @@ impl Component for App {
                         </div>
                     </div>
                     <div id="disclaimer">
-                        <div>{ "Best viewed in a desktop browser!" }</div>
+                        <div>{ "Best viewed in a desktop browser! (Moar shader, Moar effects, Moat all!)" }</div>
                     </div>
                 </div>
                 <canvas ref={self.node_ref.clone()} />
