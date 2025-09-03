@@ -35,16 +35,16 @@ float sn(vec2 p) {
 float Hash( vec2 p) {
     vec3 p2 = vec3(p.xy,1.0);
 
-    return fract(sin(dot(p2,vec3(37.1,61.7, 12.4)))*3758.5453123);
+    return fract(sin(dot(p2,vec3(37.1, 61.7, 12.4))) * 3758.5453123);
 }
 
 float noise(in vec2 p) {
     vec2 i = floor(p);
     vec2 f = fract(p);
-    f *= f * (3.0-2.0*f);
+    f *= f * (3.0 - 2.0 * f);
 
-    return mix(mix(Hash(i + vec2(0.,0.)), Hash(i + vec2(1.,0.)),f.x),
-        mix(Hash(i + vec2(0.,1.)), Hash(i + vec2(1.,1.)),f.x), f.y);
+    return mix(mix(Hash(i + vec2(0., 0.)), Hash(i + vec2(1., 0.)), f.x),
+        mix(Hash(i + vec2(0., 1.)), Hash(i + vec2(1., 1.)), f.x), f.y);
 }
 
 float fbm(vec2 p, int octaves) {
@@ -144,7 +144,7 @@ void main() {
 
     float rain = 0.0;
 
-    if (u_isMobile == 0) {
+    if (0 == u_isMobile) {
         rain = sn(vec2(newUV.x * 20.1, newUV.y * 40.1 + newUV.x * 400.1 - 20. * strength));
         float rain2 = sn(vec2(newUV.x * 45. + u_time * 0.5, newUV.y * 30.1 + newUV.x * 200.1));
         rain = strength - rain;
@@ -166,8 +166,16 @@ void main() {
     float r = 1. - length(max(abs(gl_FragCoord.xy / u_resolution.xy * 2. - 1.) - .5, 0.));
     painting *= r;
 
-    vec2 imageUV = vec2((gl_FragCoord.x - u_resolution.x * 0.5 + u_imageSize.x * 0.5)
+    vec2 imageUV;
+
+    if (0 == u_isMobile) {
+        imageUV = vec2((gl_FragCoord.x - u_resolution.x * 0.5 + u_imageSize.x * 0.5)
         / u_imageSize.x, 1.0 - (gl_FragCoord.y - u_resolution.y * 0.5 + u_imageSize.y * 0.5) / u_imageSize.y);
+    } else {
+        imageUV = vec2((gl_FragCoord.x - u_resolution.x * 0.5 + u_imageSize.x * 0.5)
+        / u_imageSize.x, 1.0 - (gl_FragCoord.y - u_resolution.y + u_imageSize.y * 1.2) / u_imageSize.y);
+    }
+
     vec4 imageColor = texture2D(iChannel0, imageUV);
 
     float lightEnhanceFactor = 1.0 + 0.75 * clamp(sin(u_time*2.0), 0.0, 1.0);
@@ -180,7 +188,6 @@ void main() {
     int llCount = (simpleRandom > 0.75) ? 2 : 1;
 
     vec3 lightningColor = lightning(uv, 0.15, llCount, 0.35);
-
     vec3 lightningGlowColor = lightning(uv, 2.0, llCount * 2, 0.0);
 
     painting += lightningColor;
@@ -194,7 +201,7 @@ void main() {
 
     gl_FragColor = imageColor;
 
-    if (u_isMobile == 0) {
+    if (0 == u_isMobile) {
         gl_FragColor += clamp(rain, 0., 1.);
     }
 

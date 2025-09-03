@@ -31,13 +31,16 @@ impl Component for App {
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        let win = window().expect("Window must be present");
+        let win = window().expect("Window should be available");
         let maybe_useragent = win.navigator().user_agent();
-        let regex = Regex::new("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini").expect("Regex failed");
+        let regex = Regex::new("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini")
+            .expect("Regex failed");
 
         Self {
-            width: (win.inner_width().unwrap().as_f64().unwrap() * win.device_pixel_ratio()) as u32,
-            height: (win.inner_height().unwrap().as_f64().unwrap() * win.device_pixel_ratio()) as u32,
+            width: (win.inner_width().expect("Inner width unknown?").as_f64().unwrap()
+                * win.device_pixel_ratio()) as u32,
+            height: (win.inner_height().expect("Inner height unknown?").as_f64().unwrap()
+                * win.device_pixel_ratio()) as u32,
             is_mobile: maybe_useragent.is_ok() && regex.is_match(&*maybe_useragent.unwrap()),
             ..Default::default()
         }
@@ -138,10 +141,10 @@ impl App {
             1.0, 1.0,
         ];
         let vertex_buffer = gl.create_buffer().unwrap();
-        let verts = js_sys::Float32Array::from(vertices.as_slice());
+        let vertex_ary = js_sys::Float32Array::from(vertices.as_slice());
 
         gl.bind_buffer(GL::ARRAY_BUFFER, Some(&vertex_buffer));
-        gl.buffer_data_with_array_buffer_view(GL::ARRAY_BUFFER, &verts, GL::STATIC_DRAW);
+        gl.buffer_data_with_array_buffer_view(GL::ARRAY_BUFFER, &vertex_ary, GL::STATIC_DRAW);
 
         // Compile vert shader
         let vert_shader = gl.create_shader(GL::VERTEX_SHADER).unwrap();
@@ -160,6 +163,7 @@ impl App {
 
         gl.attach_shader(&shader_program, &vert_shader);
         gl.attach_shader(&shader_program, &frag_shader);
+
         gl.link_program(&shader_program);
 
         gl.use_program(Some(&shader_program));
@@ -189,8 +193,9 @@ impl App {
             let height = self.height;
             let is_mobile = self.is_mobile;
 
-            let performance = window().unwrap()
-                .performance().expect("Performance should be available");
+            let performance = window().expect("Window should be available")
+                .performance()
+                .expect("Performance should be available");
 
             move || {
                 // This should repeat every frame
@@ -203,8 +208,12 @@ impl App {
                 gl.bind_framebuffer(GL::FRAMEBUFFER, None);
                 gl.uniform2f(Some(&gl.get_uniform_location(&shader_program, "u_resolution").unwrap()),
                              width as f32, height as f32);
+
+                let img_size_x = if is_mobile { width as f32 * 0.8 } else { 2000f32 };
+                let img_size_y = if is_mobile { height as f32 * 0.3 } else { 1024f32 };
+
                 gl.uniform2fv_with_f32_array(Some(&gl.get_uniform_location(&shader_program, "u_imageSize").unwrap()),
-                                             if is_mobile { &[200 as f32, 102 as f32] } else { &[2000 as f32, 1024 as f32] });
+                                             &[img_size_x, img_size_y]);
 
                 let current_time = performance.now() * 0.001;
 
