@@ -3,15 +3,18 @@
   --darker-purple: #390024;
 }
 
+@font-face {
+  font-family: "CuteMonster";
+  src: url("fonts/CuteMonster.ttf");
+}
 
 @font-face {
-  font-family: "SpookyHalloween";
-  src: url("fonts/SpookyHalloween.otf");
+  font-family: "HalloweenHorrors";
+  src: url("fonts/HalloweenHorrors.ttf");
 }
 
 html, body {
   margin: 0;
-  font-family: "SpookyHalloween";
   background-color: #000;
 }
 
@@ -21,26 +24,29 @@ h1 {
   padding: 0;
   margin: 0;
   text-shadow: 3px 0 #000;
+  font-family: "CuteMonster";
 }
 
 h2 {
   font-size: 2rem;
   padding: 0;
   margin: 0;
-  text-shadow: -3px 0px var(--darker-purple),
-    0px -3px var(--darker-purple),
-    3px 0 var(--darker-purple),
-    0 3px var(--darker-purple);
+  text-shadow: -3px 0px #000,
+    0px -3px #000,
+    3px 0 #000,
+    0 3px #000;
   color: var(--light-purple);
+  font-family: "HalloweenHorrors";
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: white;
   padding: 0;
   margin: 0;
   text-shadow: 3px 0 #000;
   text-align: justify-all;
+  font-family: "CuteMonster";
 }
 
 canvas {
@@ -76,6 +82,7 @@ canvas {
 
 #box > * {
   flex-grow: 1;
+  margin: 5px;
 }
 
 @media screen and (max-width: 600px) {

@@ -49,8 +49,9 @@ impl Component for App {
                 <div id="wrapper">
                     <div>
                         <h1>{ "Welcome to Halloween Land!" }</h1>
-                        <h2>{ "Auch dieses Jahr oeffnen sich die Pforten" }</h2>
-                        <h2>{ "Es stehen kaltes Bier und allerlei toedliche Speisen bereit!" }</h2>
+                        <h2>{ "Auch dieses Jahr öffnen sich die Pforten" }</h2>
+                        <h2>{ "Es stehen kaltes Bier und allerlei" }</h2>
+                        <h2>{ "tödliche Speisen bereit!" }</h2>
                         <div id="box">
                             <h3>{ "Wann: 31.10." }</h3>
                             <h3>{ "Wie: Verkleidet!" }</h3>
@@ -64,11 +65,6 @@ impl Component for App {
     }
 
     fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
-        // Only start the render loop if it's the first render
-        // There's no loop cancellation taking place, so if multiple renders happen,
-        // there would be multiple loops running. That doesn't *really* matter here because
-        // there's no props update and no SSR is taking place, but it is something to keep in
-        // consideration
         if !first_render {
             return;
         }
