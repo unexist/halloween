@@ -105,15 +105,19 @@ canvas {
   left: 0;
   right: 0;
   bottom: 20px;
+  font-size: 1rem;
 }
 
 #disclaimer > div {
-  font-size: 1rem;
   color: #fff;
   font-family: "HelpMe";
 }
 
 @media screen and (max-width: 600px) {
+  #wrapper {
+    top: 50px;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -124,5 +128,10 @@ canvas {
 
   h3 {
     font-size: 0.75rem;
+  }
+
+  #disclaimer {
+    font-size: 1rem;
+    bottom: 70px;
   }
 }
