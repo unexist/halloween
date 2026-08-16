@@ -194,13 +194,11 @@ impl App {
                     gl.uniform2f(Some(u_resolution), width as f32, height as f32);
                 }
 
-
-                let img_size_x = if is_mobile { width as f32 * 0.8 } else { 2000f32 };
-                let img_size_y = if is_mobile { height as f32 * 0.3 } else { 1024f32 };
+                let img_size_x = if is_mobile { width as f32 * 0.5 } else { 2000f32 };
+                let img_size_y = if is_mobile { height as f32 * 0.5 } else { 1024f32 };
 
                 if let Some(u_image_size) =  &gl.get_uniform_location(&shader_program, "u_imageSize") {
                     gl.uniform2fv_with_f32_array(Some(u_image_size), &[img_size_x, img_size_y]);
-
                 }
 
                 let current_time = performance.now() * 0.001;

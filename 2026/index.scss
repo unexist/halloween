@@ -117,7 +117,7 @@ canvas {
 
 @media screen and (max-width: 600px) {
   #wrapper {
-    top: 50px;
+    bottom: 150px;
   }
 
   h1 {
@@ -134,6 +134,6 @@ canvas {
 
   #disclaimer {
     font-size: 1rem;
-    bottom: 70px;
+    bottom: 0px;
   }
 }
