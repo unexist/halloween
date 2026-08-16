@@ -62,7 +62,9 @@ impl Component for App {
                         <div>{ "Best viewed in a desktop browser! (Moar shader, Moar effects, Moar all!)" }</div>
                     </div>
                 </div>
-                <div id="save">{ "Save the date!" }</div>
+                <div id="savewrapper">
+                    <div>{ "Save the date!" }</div>
+                </div>
                 <canvas ref={self.node_ref.clone()} />
             </>
         }
