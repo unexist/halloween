@@ -53,7 +53,7 @@ impl Component for App {
                     <div>
                         <h1>{ "Welcome to Halloween Land!" }</h1>
                         <div id="box">
-                            <h3>{ "Wann: 31.10." }</h3>
+                            <h3>{ "Wann: 31.10. / 14:00" }</h3>
                             <h3>{ "Wie: Verkleidet!" }</h3>
                             <h3>{ "Wo: Essen" }</h3>
                         </div>
@@ -62,6 +62,7 @@ impl Component for App {
                         <div>{ "Best viewed in a desktop browser! (Moar shader, Moar effects, Moar all!)" }</div>
                     </div>
                 </div>
+                <div id="save">{ "Save the date!" }</div>
                 <canvas ref={self.node_ref.clone()} />
             </>
         }

@@ -81,6 +81,22 @@ canvas {
   text-align: center;
 }
 
+#save {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 90px;
+  right: -20px;
+  padding: 2px 0;
+  box-shadow: 0 0 10px 0 #888888;
+  background-color: #111;
+  color: #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  font-family: "CuteMonster";
+  font-size: 2rem;
+}
+
 #box {
   display: flex;
   flex-flow: row;
