@@ -158,6 +158,15 @@ canvas {
     font-size: 0.75rem;
   }
 
+  #savewrapper {
+  }
+
+  #savewrapper > div {
+    top: 50px;
+    right: -180px;
+    font-size: 1em;
+  }
+
   #disclaimer {
     font-size: 1rem;
     bottom: 0px;
