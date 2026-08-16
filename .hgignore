@@ -1,5 +1,5 @@
 syntax: glob
 
-2025/target
-2025/dist
-2025/.idea
+*/target
+*/dist
+*/.idea
