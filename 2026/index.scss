@@ -1,0 +1,139 @@
+:root {
+  --light-purple: #770062;
+  --darker-purple: #390024;
+}
+
+@font-face {
+  font-family: "CuteMonster";
+  src: url("fonts/CuteMonster.ttf");
+}
+
+@font-face {
+  font-family: "HalloweenHorrors";
+  src: url("fonts/HalloweenHorrors.ttf");
+}
+
+@font-face {
+  font-family: "HelpMe";
+  src: url("fonts/HelpMe.ttf");
+}
+
+html, body {
+  margin: 0;
+  background-color: #000;
+}
+
+h1 {
+  font-size: 4rem;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-shadow: -3px 0px #000,
+    0px -3px #000,
+    3px 0 #000,
+    0 3px #000;
+  font-family: "CuteMonster";
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  text-shadow: -3px 0px #000,
+    0px -3px #000,
+    3px 0 #000,
+    0 3px #000;
+  color: var(--light-purple);
+  font-family: "HalloweenHorrors";
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-shadow: 3px 0 #000;
+  font-family: "CuteMonster";
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-image: url("images/skeletons.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#wrapper {
+  position: absolute;
+  z-index: 1;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wrapper > div {
+  text-align: center;
+}
+
+#box {
+  display: flex;
+  flex-flow: row;
+}
+
+#box > * {
+  flex-grow: 1;
+  margin: 5px;
+}
+
+#box :first-child {
+  text-align: right;
+}
+
+#box :last-child {
+  text-align: left;
+}
+
+#disclaimer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 150px;
+  font-size: 1rem;
+}
+
+#disclaimer > div {
+  color: #fff;
+  font-family: "HelpMe";
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper {
+    top: 50px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 0.75rem;
+  }
+
+  #disclaimer {
+    font-size: 1rem;
+    bottom: 70px;
+  }
+}

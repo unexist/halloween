@@ -1,0 +1,11 @@
+[tasks.serve]
+run = "trunk serve"
+
+[tasks.test]
+run = "cargo test -- --nocapture"
+
+[tasks.clean]
+run = "cargo clean"
+
+[tasks.release]
+run = "trunk serve --release"
